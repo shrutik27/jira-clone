@@ -9,8 +9,10 @@ var  jwt =require("jsonwebtoken")
 const jwtkey="shrutiksecretkey123"
  
 // Showing login form
-router.get("/", function (req, res) {
-  res.render("register");
+router.get("/", async (req, res)=> {
+   const user = await users.find({});
+   console.log(user)
+   res.status(200).json(user)
 });
 
 // Handling user login
